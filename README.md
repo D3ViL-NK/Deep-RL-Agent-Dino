@@ -1,4 +1,5 @@
 # RLDino
+
 So this must be easy eh!
 A RL model to play Dino game on chrome.
 But this is just the Draft the model is not accurate enough.
