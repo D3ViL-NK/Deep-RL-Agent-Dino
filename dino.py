@@ -133,7 +133,7 @@ for e in range(n_episodes):  # Running the agent for n episodes
     
     while(done == False):
         
-        im_L = ImageGrab.grab((x1+20, y1+250, x2*2.8/3, y2-(y2)*7.17/12))# Captureing the window 
+        im_L = ImageGrab.grab((x1+20, y1+250, x2*2.8/3, y2-(y2)*7.17/12))# Captureing the window to compare
         # (x1+20, y1+250, x2*2.8/3, y2-(y2)*7.17/12) doing some mathematical manipulations to the dimentions to remove the frame of the window.
         
         next_state = []
@@ -167,12 +167,12 @@ for e in range(n_episodes):  # Running the agent for n episodes
         if done == True: # Ending the episode if the game is over.
             break
             
-        reward += 1
-        rew = 1
+        reward += 1 #Positive reward for evry time it stays alive
+        rew = 1 # Current reward
         image = image.resize((50, 13))
         screen = np.array(image)
         state = process_img(screen)
-        ff = state
+        temp_state = state
         state = np.reshape(state, [1, state_size])
         action = agent.act(state)
         agent.remember(state, action, rew, next_state)
@@ -182,17 +182,24 @@ for e in range(n_episodes):  # Running the agent for n episodes
         elif action == 2:
             keyboard.press(Key.down)
             keyboard.release(Key.down)
+
         # print("FPS: {}".format(1/(time.time()-time1)))
         # time1 = time.time()
+        
         next_state = state
-        # cv2.imshow('Capture_Window',cv2.cvtColor(ff,cv2.COLOR_BGR2RGB))
-        # if cv2.waitKey(25) & 0xFF == ord('q'):
+        
+        # display the current state
+
+        # cv2.imshow('Current State',cv2.cvtColor(temp_state,cv2.COLOR_BGR2RGB))
+        # if cv2.waitKey(25) & 0xtemp_state == ord('q'):
         #     cv2.destroyAllWindows()
         #     break
 
+    # Retraning the nural network with new memory
     if len(agent.memory) > batch_size:
         agent.replay(batch_size)
 
+    # Saving the model at every 50 episodes
     if e % 50 == 0:
         agent.save(output_dir + "/model_" + '{:04d}'.format(e) + ".h5")
 
