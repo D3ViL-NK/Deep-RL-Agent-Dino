@@ -25,4 +25,4 @@ Making a Deep Reinforcement Learning agent to play the Game Dino.
 * act: Deciding next action.(predicting the next best action using the predicted reward or take a random action.)
 
 #### Conclusion
-The agent need a better network for predictions.
+Need improvements for the agent's nural network.
