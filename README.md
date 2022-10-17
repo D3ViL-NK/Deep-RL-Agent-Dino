@@ -19,3 +19,6 @@ Making a Deep Reinforcement Learning agent to play the Game Dino.
 * remember: Saving the current state, action, reward and the next state.
 * replay: Retraining the nuralnet using the recent experience.
 * act: Deciding next action.(predicting the next best action using the predicted reward or take a random action.)
+
+#### Conclusion
+The agent need a better network for predictions.
