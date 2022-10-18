@@ -1,7 +1,7 @@
 # Deep Reinforcement Learning Agent playing Dino
 
 ### Objective
-Studying the concept of deep reinforcemnt learning agent with a custom problem.
+Studying the concept of deep reinforcement learning agent with a custom problem.
 
 #### Sub-objective
 Making a Deep Reinforcement Learning agent to play the Game Dino.
